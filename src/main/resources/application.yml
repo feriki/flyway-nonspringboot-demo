@@ -1,0 +1,15 @@
+datasource:
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://172.25.21.55:3306/dts_test?useUnicode=true&characterEncoding=utf8&useSSL=false
+  username: a
+  password: b
+flyway:
+  enabled: true
+  table: mytest_flyway_schema_history # moduleName_flyway_schema_history
+  #当迁移时发现目标schema非空，而且带有没有元数据的表时，是否自动执行基准迁移
+  baseline-on-migrate: true
+  #开始执行基准迁移时对现有的schema的版本打标签.baseline-version要小于期望执行的脚本版本号
+  baseline-version: 0
+  #迁移脚本的位置
+  locations:
+   - classpath:/db/migration
